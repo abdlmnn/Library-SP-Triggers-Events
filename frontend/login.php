@@ -1,6 +1,5 @@
 <?php
-  include 
-
+include '../config/connect.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -15,7 +14,7 @@
       <!-- <?php if ($err): ?>
         <div class="alert alert-danger"><?php echo $err; ?></div>
       <?php endif; ?> -->
-      <form method="POST">
+      <form method="POST" action="../backend/actions/login.php">
         <div class="mb-3">
           <label class="form-label">Username</label>
           <input type="text" name="username" class="form-control" required>
