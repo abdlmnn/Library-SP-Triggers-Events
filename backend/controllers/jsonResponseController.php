@@ -6,5 +6,4 @@ class JsonResponseController{
         exit;
     }
 }
-//hi
 ?>
