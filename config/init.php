@@ -17,13 +17,21 @@ define('siteURL', $siteURL);
 include_once __DIR__.'/../backend/utils/autoload.php';
 // AUTOLOAD
 
-// CONNECTIONS DATABASE
-$connection = new DatabaseController();
-// CONNECTIONS DATABASE
+// CONNECTION
+$database = new DatabaseController();
+$connect = $database->connect();
+// CONNECTION
 
 // ROUTER
 $router = new Router($siteURL);
 // ROUTER
 
+// MODEL
+$userModel = new Users($connect);
+// MODEL
 
+// CONTROLLER
+$loginController = new LoginController($userModel);
+$logoutController = new LogoutController();
+// CONTROLLER
 ?>

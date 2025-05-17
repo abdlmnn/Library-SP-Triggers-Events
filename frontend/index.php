@@ -1,10 +1,15 @@
+<?php
+include_once '../config/init.php';
 
-<!DOCTYPE html>
-<html>
-<head><title>Dashboard</title></head>
-<body>
-  <h2>Welcome, !</h2>
+if(!isset($_SESSION['user'])){
+  $router->redirect('login');
+}
+
+include 'includes/header.php';
+?>
+  <h2>Welcome, <?php echo $_SESSION['user']['username'] ?>!</h2>
   <p>This is the dashboard.</p>
-  <a href="logout.php">Logout</a>
-</body>
-</html>
+  <button id="logoutBtn">Logout</button>
+<?php
+include 'includes/footer.php';
+?>

@@ -14,5 +14,8 @@ class DatabaseController{
             // echo 'Connection Database is successful';
         }
     }
+    public function connect(){
+        return $this->conn;
+    }
 }
 ?>
