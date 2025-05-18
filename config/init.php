@@ -28,10 +28,12 @@ $router = new Router($siteURL);
 
 // MODEL
 $userModel = new Users($connect);
+$bookModel = new Books($connect);
 // MODEL
 
 // CONTROLLER
-$loginController = new LoginController($userModel);
-$logoutController = new LogoutController();
+$loginController = new LoginController($userModel, $router);
+$logoutController = new LogoutController($router);
+$booksController = new BooksController($bookModel);
 // CONTROLLER
 ?>

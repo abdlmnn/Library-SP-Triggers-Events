@@ -9,7 +9,6 @@ logoutBtn.addEventListener('click', async () => {
     const data = await res.json();
     console.log(data)
     if(data.success){
-        window.location.href = 'login.php';
         console.log(data.message)
     }
 });

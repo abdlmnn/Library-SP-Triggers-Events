@@ -1,8 +1,9 @@
 <?php
 class LoginController{
-    private $userModel;
-    public function __construct($userModel){
+    private $userModel, $router;
+    public function __construct($userModel, $router){
         $this->userModel = $userModel;
+        $this->router = $router;
     }
     public function authenticate($username, $password){
         $user = $this->userModel->login($username, $password);
@@ -17,6 +18,10 @@ class LoginController{
                 'message' => 'Login successful',
                 'role' => $_SESSION['user']['role'],
             ]);
+
+            if($_SESSION['user']['role'] == 'admin'){
+                $this->router->redirect('index');
+            }
         }else{
             JsonResponseController::jsonResponse([
                 'success' => false,
