@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@700&family=Rye&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@700&family=Rye&family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+    <title>Hogwarts - Library System</title>
+      <link href="assets/css/styles.css?v=1.2" rel="stylesheet">
+ 
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <div class="hogwarts-logo" id="hogwartsLogo">
+            <img id="hogwartsImg" src="images/hogwarts.png" onclick="index()">
+            <h1 id="hogwartsTxt" onclick="index()">HOGWARTS</h1>
+        </div>    
+            <ul id="news-letter-links" class="nav-links">
+                
+     
+                <li id="login" class="login-button">Login</li>    
+        
+              
+           
+            </ul>
+          
+    </nav>
+
+    <div id="welcomeContainer">
+        <img id="welcomeImg" src="images/welcome.png">
+        <h1 id="photographer">Welcome to the Hogwarts Library Portal.</h1>
+    </div>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <div class="action">
+                <p class="filluprani">Some text in the Modal..</p>
+                <span class="close">&times;</span>
+            </div>
+
+            <div class="loginform">
+                    <form method="POST" id="loginForm">
+                    <div class="mb-3">
+                        <label class="form-label">Username</label>
+                        <input type="text" name="username" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Password</label>
+                        <input type="password" name="password" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Login</button>
+                    </form>
+            </div>
+           
+        </div>
+
+    </div>
+
+
+
+    <script>
+           
+        var modal = document.getElementById("myModal");
+
+    
+        var btn = document.getElementById("login");
+
+  
+        var span = document.getElementsByClassName("close")[0];
+
+     
+        btn.onclick = function() {
+        modal.style.display = "block";
+        }
+
+     
+        span.onclick = function() {
+        modal.style.display = "none";
+        }
+
+      
+        window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+        }
+    </script>
+
+</body>
+</html>
