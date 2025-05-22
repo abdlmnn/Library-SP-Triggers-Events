@@ -19,5 +19,19 @@ class BooksController{
             'message' => 'Added book successful',
         ]);
     }
+    public function update($book_id, $title, $author, $copies){
+        $this->bookModel->updateBooks($book_id, $title, $author, $copies);
+        JsonResponseController::jsonResponse([
+            'success' => true,
+            'message' => 'Updated book successful',
+        ]);
+    }
+    public function delete($book_id){
+        $this->bookModel->deleteBooks($book_id);
+        JsonResponseController::jsonResponse([
+            'success' => true,
+            'message' => 'Deleted book successful',
+        ]);
+    }
 }
 ?>

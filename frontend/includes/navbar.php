@@ -1,45 +1,36 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
   <div class="container-fluid">
-    <a class="navbar-brand" href="index.php">📚 LibrarySys</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+    <a class="navbar-brand fw-bold" href="index.php">
+      <i class="bi bi-journal-bookmark-fill me-2"></i>Library System
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#libraryNavbar" aria-controls="libraryNavbar" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    
-    <div class="collapse navbar-collapse" id="navMenu">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item"><a class="nav-link" href="books.php">Books</a></li>
-        <li class="nav-item"><a class="nav-link" href="members.php">Members</a></li>
-        <li class="nav-item"><a class="nav-link" href="borrow.php">Borrow/Return</a></li>
-        <li class="nav-item"><a class="nav-link" href="logs.php">Logs</a></li>
-      </ul>
 
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle position-relative" href="#" id="notificationsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="bi bi-bell-fill"></i>
-            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-              <!-- <?php
-                include 'db.php'; // your DB connection
-                $result = mysqli_query($conn, "SELECT COUNT(*) AS total FROM overdue_notifications WHERE status = 'Unread'");
-                $row = mysqli_fetch_assoc($result);
-                echo $row['total'];
-              ?> -->
-            </span>
-          </a>
-          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notificationsDropdown">
-            <!-- <?php
-              $notif_query = mysqli_query($conn, "SELECT * FROM overdue_notifications WHERE status = 'Unread' ORDER BY created_at DESC LIMIT 5");
-              if (mysqli_num_rows($notif_query) > 0) {
-                while ($n = mysqli_fetch_assoc($notif_query)) {
-                  echo "<li><a class='dropdown-item text-wrap' href='#'>{$n['message']} <small class='text-muted d-block'>{$n['created_at']}</small></a></li>";
-                }
-              } else {
-                echo "<li><span class='dropdown-item text-muted'>No new notifications</span></li>";
-              }
-            ?> -->
-          </ul>
+    <div class="collapse navbar-collapse" id="libraryNavbar">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-flex align-items-center gap-1">
+        <li class="nav-item">
+          <a class="nav-link active" href="book.php"><i class="bi bi-book me-1"></i>Books</a>
         </li>
-        <li class="nav-item"><a class="nav-link" href="logout.php"><i class="bi bi-box-arrow-right"></i> Logout</a></li>
+        <li class="nav-item">
+          <a class="nav-link" href="borrow_records.php"><i class="bi bi-calendar-check me-1"></i>Borrow Records</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="logs.php"><i class="bi bi-clipboard-data me-1"></i>Logs</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="members.php"><i class="bi bi-people me-1"></i>Members</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="overdue_notifications.php"><i class="bi bi-exclamation-circle me-1"></i>Overdue</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="users.php"><i class="bi bi-person-gear me-1"></i>Users</a>
+        </li>
+        <li class="nav-item">
+            <button type="button" id="logoutBtn" class="btn btn-sm btn-outline-light"><i class="bi bi-box-arrow-right me-1"></i>Logout</button>
+        </li>
       </ul>
     </div>
   </div>

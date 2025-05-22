@@ -1,37 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Books - Library System</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body class="bg-light">
+<?php
+include_once '../config/init.php';
 
-<div class="container mt-5">
-    <div class="d-flex justify-content-between align-items-center mb-3">
-        <h2>Library Books</h2>
-        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addBookModal">Add New Book</button>
-    </div>
+if (!isset($_SESSION['user'])) {
+  $router->redirect('login');
+}
 
-    <div class="table-responsive">
-        <table class="table table-bordered table-striped shadow-sm">
-        <thead class="table-dark">
-            <tr>
-            <th>ID</th>
-            <th>Title</th>
-            <th>Author</th>
-            <th>Copies</th>
-            <th>Available</th>
-            <th>Status</th>
-            <th>Date Added</th>
-            <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody id="booksTableBody">
-            
-        </tbody>
-        </table>
-    </div>
+include 'includes/header.php';
+include 'includes/navbar.php';
+?>
+    <div class="container mt-5">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <div>
+                <h2 class="fw-bold"><i class="bi bi-book display-5 text-black" style="font-size: 2rem;"></i> Library Books</h2>
+            </div>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addBookModal">
+                <i class="bi bi-plus-circle me-1"></i> Add New Book
+            </button>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover align-middle">
+                <thead class="table-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Copies</th>
+                    <th>Available</th>
+                    <th>Status</th>
+                    <th>Date Added</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody id="booksTableBody">
+                
+                </tbody>
+            </table>
+        </div>
     </div>
 
     <div class="modal fade" id="addBookModal" tabindex="-1" aria-labelledby="addBookModalLabel" aria-hidden="true">
@@ -58,25 +63,45 @@
                 </div>
                 
                 <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Add</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <button type="submit" class="btn btn-success">Add Book</button>
                 </div>
             </form>
         </div>
     </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js" integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="../frontend/assets/js/booksAPI.js" defer></script>
-
-
-<script>
-  const addBookModal = document.getElementById('addBookModal');
-  addBookModal.addEventListener('hide.bs.modal', () => {
-    if (document.activeElement && addBookModal.contains(document.activeElement)) {
-      document.activeElement.blur(); // Remove focus to avoid aria-hidden error
-    }
-  });
-</script>
-</body>
-</html>
+    <div class="modal fade" id="editBookModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <form id="editBookForm" class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Book</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" name="book_id" id="editBookId">
+                    <div class="mb-3">
+                    <label>Title</label>
+                    <input type="text" name="title" id="editTitle" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                    <label>Author</label>
+                    <input type="text" name="author" id="editAuthor" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                    <label>Copies</label>
+                    <input type="number" name="copies" id="editCopies" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                    <label>Available</label>
+                    <input type="number" name="available" id="editAvailable" class="form-control" disabled>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Update</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="../frontend/assets/js/booksAPI.js"></script>
+<?php include 'includes/footer.php'; ?>

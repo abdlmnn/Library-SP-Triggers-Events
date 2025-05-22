@@ -7,7 +7,7 @@ class Books{
     }
     public function displayBooks(){
         $sql = "
-            SELECT * FROM books ORDER BY date_added DESC
+            CALL GetAllBooks()
         ";
         $result = $this->conn->query($sql);
         while($row = $result->fetch_assoc()){
@@ -21,6 +21,27 @@ class Books{
                 '$title',
                 '$author',
                 '$copies'
+            )
+        ";
+        $result = $this->conn->query($sql);
+        return $result;
+    }
+    public function updateBooks($book_id, $title, $author, $copies){
+        $sql = "
+            CALL UpdateBook(
+                '$book_id',
+                '$title',
+                '$author',
+                '$copies'
+            )
+        ";
+        $result = $this->conn->query($sql);
+        return $result;
+    }
+    public function deleteBooks($book_id){
+        $sql = "
+            CALL DeleteBook(
+                '$book_id'
             )
         ";
         $result = $this->conn->query($sql);

@@ -13,6 +13,7 @@ loginForm.addEventListener('submit', async (e) => {
     console.log(data)
     if(data.success){
         console.log(data.message)
+        window.location.href = data.dashboard;
     }else{
         messageDiv.style.display = 'block';
         messageDiv.textContent = data.message;
