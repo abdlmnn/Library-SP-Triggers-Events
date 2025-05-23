@@ -4,10 +4,10 @@ class Router{
     public function __construct($siteURL){
         $this->siteURL = $siteURL;
         $this->routes = [
-            'login' => $this->siteURL.'login.php',
-            // 'login' => $this->siteURL.'index.php',
-            'index' => $this->siteURL.'dashboard.php',       
-            'dashboard' => $this->siteURL.'dashboard.php',
+            'login' => $this->siteURL.'login.php', 
+            // 'login' => $this->siteURL.'index.php', 
+            'admin-dashboard' => $this->siteURL.'dashboard.php', 
+            'student-dashboard' => $this->siteURL.'student.php', 
         ];
     }
     public function redirect($page){

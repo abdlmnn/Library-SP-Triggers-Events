@@ -4,8 +4,8 @@ class LoginController{
     public function __construct($userModel, $router){
         $this->userModel = $userModel;
         $this->router = $router;
-        $this->admin = $this->router->route('login');
-        $this->student = $this->router->route('dashboard');
+        $this->admin = $this->router->route('admin-dashboard');
+        $this->student = $this->router->route('student-dashboard');
     }
     public function authenticate($username, $password){
         $user = $this->userModel->login($username, $password);
@@ -15,9 +15,9 @@ class LoginController{
                 'username' => $user['username'],
                 'role' => $user['role']
             ];
-            if($_SESSION['user']['role'] === 'admin'){
+            if($user['role'] === 'admin'){
                 $dashboard = $this->admin;
-            }else if($_SESSION['user']['role'] === 'student'){
+            }else if($user['role'] === 'student'){
                 $dashboard = $this->student;
             }
             JsonResponseController::jsonResponse([
