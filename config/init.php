@@ -26,14 +26,20 @@ $connect = $database->connect();
 $router = new Router($siteURL);
 // ROUTER
 
+// MIDDLEWARE
+$middleware = new AuthMiddleware($router);
+// MIDDLEWARE
+
 // MODEL
 $userModel = new Users($connect);
 $bookModel = new Books($connect);
+$borrowModel = new BorrowRecords($connect);
 // MODEL
 
 // CONTROLLER
 $loginController = new LoginController($userModel, $router);
 $logoutController = new LogoutController($router);
 $booksController = new BooksController($bookModel);
+$borrowController = new BorrowController($borrowModel);
 // CONTROLLER
 ?>

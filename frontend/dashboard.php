@@ -1,9 +1,7 @@
 <?php
 include_once '../config/init.php';
 
-if(!isset($_SESSION['user'])){
-  $router->redirect('login');
-}
+$middleware->checkAuth();
 
 include 'includes/header.php';
 include 'includes/navbar.php';

@@ -6,6 +6,7 @@ spl_autoload_register(
             __DIR__.'/../../backend/controllers/',
             __DIR__.'/../../backend/models/',
             __DIR__.'/../../backend/router/',
+            __DIR__.'/../../backend/middleware/',
         ];
         foreach($paths as $path){
             $file = $path.$name.'.php';
