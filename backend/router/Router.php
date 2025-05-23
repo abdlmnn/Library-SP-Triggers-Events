@@ -5,7 +5,8 @@ class Router{
         $this->siteURL = $siteURL;
         $this->routes = [
             'login' => $this->siteURL.'login.php',
-            'index' => $this->siteURL.'index.php',       
+            // 'login' => $this->siteURL.'index.php',
+            'index' => $this->siteURL.'dashboard.php',       
             'dashboard' => $this->siteURL.'dashboard.php',
         ];
     }

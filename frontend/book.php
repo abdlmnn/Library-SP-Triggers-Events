@@ -1,9 +1,9 @@
 <?php
 include_once '../config/init.php';
 
-if (!isset($_SESSION['user'])) {
-  $router->redirect('login');
-}
+// if (!isset($_SESSION['user'])) {
+//   $router->redirect('login');
+// }
 
 include 'includes/header.php';
 include 'includes/navbar.php';
@@ -19,21 +19,21 @@ include 'includes/navbar.php';
         </div>
 
         <div class="table-responsive">
-            <table class="table table-bordered table-hover align-middle">
-                <thead class="table-dark">
+            <table class="table table-striped table-hover table-bordered align-middle">
+                <thead class="table-dark text-center">
                 <tr>
-                    <th>ID</th>
-                    <th>Title</th>
-                    <th>Author</th>
-                    <th>Copies</th>
-                    <th>Available</th>
-                    <th>Status</th>
-                    <th>Date Added</th>
-                    <th>Actions</th>
+                    <th scope="col">#</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Author</th>
+                    <th scope="col">Copies</th>
+                    <th scope="col">Available</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Date Added</th>
+                    <th scope="col">Actions</th>
                 </tr>
                 </thead>
-                <tbody id="booksTableBody">
-                
+                <tbody id="booksTableBody" class="text-center">
+
                 </tbody>
             </table>
         </div>
@@ -58,7 +58,7 @@ include 'includes/navbar.php';
                     </div>
                     <div class="mb-3">
                     <label for="copies" class="form-label">Copies</label>
-                    <input type="number" class="form-control" id="copies" name="copies" required min="1">
+                    <input type="number" class="form-control" id="copies" name="copies" required>
                     </div>
                 </div>
                 
@@ -89,7 +89,7 @@ include 'includes/navbar.php';
                     </div>
                     <div class="mb-3">
                     <label>Copies</label>
-                    <input type="number" name="copies" id="editCopies" class="form-control" required>
+                    <input type="number" name="copies" id="editCopies" class="form-control" min="0" required>
                     </div>
                     <div class="mb-3">
                     <label>Available</label>
@@ -103,5 +103,5 @@ include 'includes/navbar.php';
             </form>
         </div>
     </div>
-    <script src="../frontend/assets/js/booksAPI.js"></script>
+    <script src="../frontend/assets/js/booksAPI.js?v=1.1"></script>
 <?php include 'includes/footer.php'; ?>

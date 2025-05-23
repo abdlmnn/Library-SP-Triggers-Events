@@ -12,6 +12,7 @@
     <title>Hogwarts - Library System</title>
     
       <link href="assets/css/styles.css?v=1.2" rel="stylesheet">
+      <script src="assets/js/loginAPI.js" defer></script>
 
  
 </head>

@@ -310,6 +310,7 @@ body {
     padding: 10px 20px 10px 20px;
     border-radius: 20px;
     font-family: "Ubuntu Sans", sans-serif;
+    border: 1px solid red;
   }
 
   .login-button:hover {

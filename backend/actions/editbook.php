@@ -7,7 +7,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         $_POST['title'],
         $_POST['author'],
         $_POST['copies'],
-        // $_POST['available'],
     );
 }
 ?>

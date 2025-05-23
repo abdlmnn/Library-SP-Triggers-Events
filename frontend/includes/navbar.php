@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
   <div class="container-fluid">
-    <a class="navbar-brand fw-bold" href="index.php">
+    <a class="navbar-brand fw-bold" href="dashboard.php">
       <i class="bi bi-journal-bookmark-fill me-2"></i>Library System
     </a>
 
@@ -20,13 +20,7 @@
           <a class="nav-link" href="logs.php"><i class="bi bi-clipboard-data me-1"></i>Logs</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="members.php"><i class="bi bi-people me-1"></i>Members</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="overdue_notifications.php"><i class="bi bi-exclamation-circle me-1"></i>Overdue</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="users.php"><i class="bi bi-person-gear me-1"></i>Users</a>
+          <a class="nav-link" href="user.php"><i class="bi bi-person-gear me-1"></i>Users</a>
         </li>
         <li class="nav-item">
             <button type="button" id="logoutBtn" class="btn btn-sm btn-outline-light"><i class="bi bi-box-arrow-right me-1"></i>Logout</button>

@@ -4,7 +4,7 @@ class LoginController{
     public function __construct($userModel, $router){
         $this->userModel = $userModel;
         $this->router = $router;
-        $this->admin = $this->router->route('index');
+        $this->admin = $this->router->route('login');
         $this->student = $this->router->route('dashboard');
     }
     public function authenticate($username, $password){

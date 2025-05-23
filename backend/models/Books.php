@@ -17,7 +17,7 @@ class Books{
     }
     public function addBooks($title, $author, $copies){
         $sql = "
-            CALL sp_add_book(
+            CALL AddBook(
                 '$title',
                 '$author',
                 '$copies'

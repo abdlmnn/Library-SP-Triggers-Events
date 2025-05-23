@@ -6,6 +6,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     if(data.success){
         tbody.innerHTML = '';
         data.books.forEach(book => {
+            let status = '';
+            if(book.status === 'damaged') {
+                status = `<span class="badge bg-secondary">Damaged</span>`;
+            }else if(book.status === 'unavailable') {
+                status = `<span class="badge bg-danger">Unavailable</span>`;
+            }else{
+                status = `<span class="badge bg-success">Available</span>`;
+            }
             const row = `
             <tr>
                 <td>${book.book_id}</td>
@@ -13,11 +21,15 @@ document.addEventListener('DOMContentLoaded', async () => {
                 <td>${book.author}</td>
                 <td>${book.copies}</td>
                 <td>${book.available}</td>
-                <td>${book.status}</td>
+                <td>${status}</td>
                 <td>${book.date_added}</td>
                 <td>
-                    <button class="btn btn-sm btn-warning" onclick='openEditModal(${JSON.stringify(book)})'>Edit</button>
-                    <button class="btn btn-sm btn-danger" onclick="deleteBook(${book.book_id})">Delete</button>
+                    <button class="btn btn-sm btn-warning" onclick='openEditModal(${JSON.stringify(book)})'>
+                        <i class="bi bi-pencil-square"></i>
+                    </button>
+                    <button class="btn btn-sm btn-danger" onclick="deleteBook(${book.book_id})">
+                        <i class="bi bi-trash"></i>
+                    </button>
                 </td>
             </tr>
             `;
@@ -103,15 +115,25 @@ const deleteBook = async (book_id) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
 const addBookModal = document.getElementById('addBookModal');
 const editBookModal = document.getElementById('editBookModal');
 addBookModal.addEventListener('hide.bs.modal', () => {
     if (document.activeElement && addBookModal.contains(document.activeElement)) {
-      document.activeElement.blur(); // Remove focus to avoid aria-hidden error
+      document.activeElement.blur();
     }
 });
 editBookModal.addEventListener('hide.bs.modal', () => {
     if (document.activeElement && editBookModal.contains(document.activeElement)) {
-      document.activeElement.blur(); // Remove focus to avoid aria-hidden error
+      document.activeElement.blur();
     }
 });

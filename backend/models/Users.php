@@ -6,7 +6,7 @@ class Users{
     }
     public function login($username, $password){
         $sql = "
-            CALL sp_check_login('$username', '$password')
+            CALL CheckLogin('$username', '$password')
         ";
         $result = $this->conn->query($sql);
         if($result){
