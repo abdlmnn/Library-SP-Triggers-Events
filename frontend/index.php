@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@700&family=Rye&family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
     <title>Hogwarts - Library System</title>
     
-      <link href="assets/css/styles.css?v=1.3" rel="stylesheet">
+      <link href="assets/css/styles.css?v=1.4" rel="stylesheet">
       <script src="assets/js/loginAPI.js" defer></script>
  
 </head>
@@ -24,7 +24,7 @@
             <img id="hogwartsImg" src="images/hogwarts.png" onclick="index()">
             <h1 id="hogwartsTxt" onclick="index()">HOGWARTS</h1>
         </div>    
-        <ul style="border: 1px solid red;" id="news-letter-links" class="nav-links">
+        <ul id="news-letter-links" class="nav-links">
                 
      
                 <li id="login" class="login-button">Login</li>    
